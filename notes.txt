@@ -1,0 +1,16 @@
+Segment
+Name: music
+id: KZFzniwnSyZfZ7v7nJ
+
+Genre
+name: Dance/Electronic
+id: KnvZfZ7vAvF
+
+SubGenre
+name: Dance/Electronic
+id: KZazBEonSMnZfZ7vA1E
+
+
+//working link to search in texas
+https://app.ticketmaster.com/discovery/v2/events?apikey=eyKzsAIxTpp4FCwrBJdOsoz0yWrvl35V&locale=*&city=Austin&genreId=KnvZfZ7vAvF
+
