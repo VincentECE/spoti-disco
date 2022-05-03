@@ -18,9 +18,9 @@ const getEvents = function (zipCode, res) {
     responseType: 'JSON',
   })
   .then(({ data }) => {
-    //sends back an array of objects
-    const events = makeEventsArray(data._embedded.events);
-    res.send(data._embedded.events);
+    //passes in res as a callback
+    makeEventsArray(data._embedded.events, res);
+    // res.send(data._embedded.events);
   })
   .catch((err)=>{
     console.log('something went wrong in apiRelay', err.message);

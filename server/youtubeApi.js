@@ -33,6 +33,7 @@ const getPlaylist = function (channelId) {
 //playlistItems
 //input: playlistId
 //output: videosObj
+//constraints: need to make another request if videos are private. some playlists can be private
 const getPlaylistVideos = function (playlistId) {
   const route = 'playlistItems?';
   const query = `part=snippet&maxResults=5&playlistId=${playlistId}&`;

@@ -5,14 +5,14 @@ const {
   getPlaylistVideos,
 } = require('./youtubeApi');
 
-function makeEventsArray(events) {
+function makeEventsArray(events, res) {
 
   let filteredEvents = [];
-  let flag = true; // DELETE THIS AFTER TESTING
+  let flag = true; // Limits API calls for testing
 
   events.forEach((event) => {
     if (flag) {
-      let filteredEvent = addArtistsList(event);
+      let filteredEvent = filterEvents(event);
       if (filteredEvent !== -1) {
         filteredEvents.push(filteredEvent);
       }
@@ -20,11 +20,24 @@ function makeEventsArray(events) {
     }
   });
 
-  filteredEvents.forEach((event) => {
-    addYoutubeVideos(event.artistsAndYouTube);
-    // console.log(JSON.stringify(event.artistsAndYouTube))
-  });
+  let promiseObject = [];
 
+  for(let i = 0; i < filteredEvents.length; i++) {
+    // console.log(filteredEvents);
+    let reducedVideosObj = addYoutubeVideos(filteredEvents[i].artistsAndYouTube);
+    filteredEvents[i].artistsAndYouTube.youtubeVideos = reducedVideosObj;
+    promiseObject = promiseObject.concat(reducedVideosObj);
+  }
+
+  Promise.all(promiseObject)
+  .then(()=>{
+    // console.log(JSON.stringify(filteredEvents, null, 2))
+    res.send(filteredEvents);
+  })
+
+  // console.log(filteredEvents.map(async (event) => {
+  //   return await addYoutubeVideos(event.artistsAndYouTube);
+  //  }));
 }
 
 /*
@@ -36,7 +49,7 @@ returns:
       priceRanges: priceRanges,
       artistsAndYouTube: artistsAndYouTube,
 */
-function addArtistsList(event) {
+function filterEvents(event) {
   let artistsAndYouTube = [];
 
   // console.log(JSON.stringify(event, null, 2))
@@ -85,27 +98,18 @@ function addArtistsList(event) {
 //adds youtube videos to the artistsArray by reference
 function addYoutubeVideos(artistsArray) {
 
-  let flag = true; // DELETE THIS. It's testing so one loop would run
-
-  artistsArray.forEach(async (artistInfo) => {
-
-    if (flag) {
+  return artistsArray.map(async (artistInfo) => {
       const { youtubeChannel } = artistInfo;
-
-      //will assign videos to this
-      // artistInfo.youtubeVideos = ['poop'];
 
       if (youtubeChannel.includes('https://www.youtube.com/user')) {
         const username = youtubeChannel.substring(29);
-
         try {
           let { data: channel } = await getChannelId(username);
           let { data: playlist } = await getPlaylist(channel.items[0].id);
           let {data: videosObj } = await getPlaylistVideos(playlist.items[0].id);
           let reducedVideosObj = reduceVideoObj(videosObj);
-
-        }
-        catch(err) {
+         return Object.assign(artistInfo, { youtubeVideos: reducedVideosObj })
+        } catch(err) {
           console.log('something went wrong working with youtubeAPI', err.message);
         }
 
@@ -114,12 +118,9 @@ function addYoutubeVideos(artistsArray) {
           let { data: playlist } = await getPlaylist(channelId);
           let {data: videosObj } = await getPlaylistVideos(playlist.items[0].id);
           let reducedVideosObj = reduceVideoObj(videosObj);
-          // console.log(reducedVideosObj);
+          return Object.assign(artistInfo, { youtubeVideos: reducedVideosObj })
       }
-      flag = false;
-    }
-
-  })
+  });
 
 }
 
@@ -137,7 +138,6 @@ function reduceVideoObj(videosObj) {
       videoId: videoId,
     });
   });
-
   return reducedVideosObj;
 }
 

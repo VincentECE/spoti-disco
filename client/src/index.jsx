@@ -17,6 +17,7 @@ function App() {
     getEvents('08401')
     .then(({ data })=>{
       setArtists(data);
+      console.log(data);
     })
     .catch((err)=>{
       console.log(err.message);
@@ -31,7 +32,7 @@ function App() {
         <input type="submit" />
       </form>
       <VideoPlayer/>
-      <ArtistsList artists={artists}/>
+      {/* <ArtistsList artists={artists}/> */}
     </div>
   );
 }
