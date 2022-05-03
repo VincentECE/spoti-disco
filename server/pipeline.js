@@ -101,8 +101,9 @@ function addYoutubeVideos(artistsArray) {
         try {
           let { data: channel } = await getChannelId(username);
           let { data: playlist } = await getPlaylist(channel.items[0].id);
-          let {data: videos } = await getPlaylistVideos(playlist.items[0].id);
-          console.log(videos);
+          let {data: videosObj } = await getPlaylistVideos(playlist.items[0].id);
+          let reducedVideosObj = reduceVideoObj(videosObj);
+
         }
         catch(err) {
           console.log('something went wrong working with youtubeAPI', err.message);
@@ -110,13 +111,34 @@ function addYoutubeVideos(artistsArray) {
 
       } else {
         const channelId = youtubeChannel.substring(32);
-        getPlaylist(channelId)
+          let { data: playlist } = await getPlaylist(channelId);
+          let {data: videosObj } = await getPlaylistVideos(playlist.items[0].id);
+          let reducedVideosObj = reduceVideoObj(videosObj);
+          // console.log(reducedVideosObj);
       }
       flag = false;
     }
 
   })
 
+}
+
+//input: large videosObj
+//output: reducedVideosObj with title and videoId
+function reduceVideoObj(videosObj) {
+  let reducedVideosObj = [];
+
+  videosObj.items.forEach((videos) => {
+    const videoTitle = videos.snippet.title;
+    const videoId = videos.snippet.resourceId.videoId;
+
+    reducedVideosObj.push({
+      videoTitle: videoTitle,
+      videoId: videoId,
+    });
+  });
+
+  return reducedVideosObj;
 }
 
 module.exports = {

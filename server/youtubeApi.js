@@ -37,8 +37,6 @@ const getPlaylistVideos = function (playlistId) {
   const route = 'playlistItems?';
   const query = `part=snippet&maxResults=5&playlistId=${playlistId}&`;
 
-  console.log(''.concat(youtubeUrl, route, query, YOUTUBE_KEY))
-
   return axios({
     method: 'get',
     url: ''.concat(youtubeUrl, route, query, YOUTUBE_KEY),
