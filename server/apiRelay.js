@@ -14,7 +14,7 @@ const getEvents = function (zipCode, res) {
 
   axios({
     method: 'get',
-    url: ''.concat(ticketMasterUrl+TICKET_MASTER_KEY+ticketMasterQuery),
+    url: ''.concat(ticketMasterUrl,TICKET_MASTER_KEY,ticketMasterQuery),
     responseType: 'JSON',
   })
   .then(({ data }) => {
@@ -27,6 +27,7 @@ const getEvents = function (zipCode, res) {
     res.send(err.message);
   });
 }
+
 
 module.exports = {
   getEvents,
