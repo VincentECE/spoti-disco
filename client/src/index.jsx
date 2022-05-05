@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import VideoPlayer from './components/VideoPlayer.jsx';
-import getEvents from '../apiMaster.js';
+import { getEvents } from '../apiMaster.js';
 import EventsList from './components/EventsList.jsx';
 import { BrowserRouter as Router, Switch, Route, Link, Routes } from "react-router-dom";
+import FavoriteArtists from './components/FavoriteArtists.jsx';
 import Navbar from './components/Navbar.jsx';
 const container = document.getElementById('app');
 const root = createRoot(container);
@@ -15,7 +16,6 @@ function App() {
 
   function handleCity(e) {
     e.preventDefault();
-    console.log('making request');
 
     getEvents('08401')
       .then(({ data }) => {
@@ -26,6 +26,17 @@ function App() {
         console.log(err.message);
       });
   }
+
+  useEffect(() => {
+    getEvents('08401')
+      .then(({ data }) => {
+        setEventsCollection(data);
+        // console.log(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  })
 
   return (
     <Router>
@@ -52,6 +63,9 @@ function App() {
                 </section>
               </div>
             } />
+            <Route exact path="favoriteArtists" element={
+              <FavoriteArtists/>
+            }/>
           </Routes>
         </div>
       </div>

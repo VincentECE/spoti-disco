@@ -4,13 +4,13 @@ const usersSchema = new mongoose.Schema({
   username: {
     type: String,
   },
-  sessionId: {
+  session_id: {
     type: String,
     required: true,
   },
   favoriteArtists: {
     type: Array,
-    default: [];
+    default: [],
   }
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import VideosList from './VideosList.jsx';
 import { v4 as uuidv4 } from 'uuid';
-// import { saveFavoriteArtist } from '../../apiMaster.js';
+import { saveFavoriteArtist } from '../../apiMaster.js';
 
 const ArtistTile = ({ artist, handleVideoSelect }) => {
   const {
@@ -12,8 +12,8 @@ const ArtistTile = ({ artist, handleVideoSelect }) => {
   return (
     <div className="tile-container tile-container-spacing">
       <div className="tile-header-container">
-      <label onClick={() => { window.open(youtubeChannel, "_blank") }}>{artistName}</label>
-      <button className="btn-primary" type="button" autofocus>Favorite</button>
+      <label className="artist-name" onClick={() => { window.open(youtubeChannel, "_blank") }}>{artistName}</label>
+      <button onClick={()=>{saveFavoriteArtist(artist)}}className="btn-primary" type="button" autofocus>Favorite</button>
       </div>
       <div className="tile-body-container">
         <ul className="videos-list">

@@ -16,7 +16,7 @@ function makeEventsArray(events, res) {
       if (filteredEvent !== -1) {
         filteredEvents.push(filteredEvent);
       }
-      // flag = false;
+      flag = false;
     }
   });
 

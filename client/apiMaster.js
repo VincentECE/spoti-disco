@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const url = 'http://localhost:1128/';
 
-function getEvents(zipCode) {
+export function getEvents(zipCode) {
   const data = {
     zipCode: zipCode,
   };
@@ -14,7 +14,7 @@ function getEvents(zipCode) {
   })
 }
 
-function saveFavoriteArtist(artistInfo) {
+export function saveFavoriteArtist(artistInfo) {
 
   return axios({
     method: 'post',
@@ -23,4 +23,10 @@ function saveFavoriteArtist(artistInfo) {
   })
 }
 
-export default getEvents;
+export function getFavoriteArtists() {
+
+  return axios({
+    method: 'get',
+    url: url+'getFavoriteArtists',
+  })
+}
