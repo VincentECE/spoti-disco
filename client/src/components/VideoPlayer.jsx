@@ -1,17 +1,22 @@
 import React from 'react';
 
-var VideoPlayer = (props) => {
-  let title = 'Yellow Claw presents The OG Trap Set Part 1';
-  let description = 'Welcome to our first OG trap mix. A distinguished selection of our favourite songs from the early days of trap. All these records helped us destroy clubs around the world and we will never forget that. Sending our love to all these producers for being awesome and pushing the sound!';
-  let id = '_Aw0aSzJAcg';
+var VideoPlayer = ({ currentVideoInfo }) => {
+
+  const { videoTitle, videoId } = currentVideoInfo;
+
   return (
-    <div className="video-player">
-      <h3>{title}</h3>
-      <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={"https://www.youtube.com/embed/" + id} allowFullScreen></iframe>
-      </div>
-      <div className="video-player-details">
-        {/* <div>{description}</div> */}
+    <div className="video-player-container">
+      <h3>{videoTitle}</h3>
+      <div className="video-responsive">
+        <iframe
+          width="853"
+          height="480"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="Embedded youtube"
+        />
       </div>
     </div>
   );

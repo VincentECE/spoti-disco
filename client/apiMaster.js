@@ -11,7 +11,16 @@ function getEvents(zipCode) {
     method: 'post',
     url: url+'events',
     data: data,
-  });
+  })
+}
+
+function saveFavoriteArtist(artistInfo) {
+
+  return axios({
+    method: 'post',
+    url: url+'addArtist',
+    data: artistInfo,
+  })
 }
 
 export default getEvents;

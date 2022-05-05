@@ -7,9 +7,9 @@ const ArtistsList = ({ artists }) => {
 
   return(
     <div>{
-      artists.map((event, index) => {
-      return <ArtistTile key={ index } event={event}/>
-    })
+    //   artists.map((event, index) => {
+    //   return <ArtistTile key={ index } event={event}/>
+    // })
     }</div>
   )
 

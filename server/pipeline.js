@@ -16,7 +16,7 @@ function makeEventsArray(events, res) {
       if (filteredEvent !== -1) {
         filteredEvents.push(filteredEvent);
       }
-      flag = false;
+      // flag = false;
     }
   });
 
@@ -59,6 +59,7 @@ function filterEvents(event) {
     dates,
     images,
     priceRanges,
+    url,
     _embedded, //don't send this back
   } = event;
 
@@ -88,6 +89,7 @@ function filterEvents(event) {
       dates: dates,
       images: images,
       priceRanges: priceRanges,
+      url: url,
       artistsAndYouTube: artistsAndYouTube,
     })
   } else {

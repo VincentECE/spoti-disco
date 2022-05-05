@@ -1,42 +1,31 @@
 import React from 'react';
+import VideosList from './VideosList.jsx';
+import { v4 as uuidv4 } from 'uuid';
+// import { saveFavoriteArtist } from '../../apiMaster.js';
 
-// @@@@@@@@@@@ Change this to events list
-
-/*
-  some events can have performers without youtube links
-  future improvements should find video links for artists without
-  youtube links too.
-*/
-const ArtistTile = ({ event }) => {
-  // console.log(event);
+const ArtistTile = ({ artist, handleVideoSelect }) => {
   const {
-    name,
-    dates,
-    images,
-    priceRanges,
-    _embedded,
-  } = event;
-
-  //artist perfoming at this event
-  //this is the first item of the array that has
-  //all the artists perfoming at this event
-  const attractions = _embedded.attractions;
-  let artistsAndYouTube = [];
-
-  //extracts artist names and youtube links
-  //this does not display artists without youtube links
-  attractions.forEach((artistInfo) => {
-    let artistName = artistInfo.name;
-    if (artistInfo.externalLinks?.youtube){
-      // artistsAndYouTube.push({ [artistName]: artistInfo.externalLinks?.youtube[0].url});
-    }
-  });
-
-  // console.log(artistsAndYouTube);
-
-  return(
-    <div className="">
-
+    artistName,
+    youtubeVideos,
+    youtubeChannel,
+  } = artist;
+  return (
+    <div className="tile-container tile-container-spacing">
+      <div className="tile-header-container">
+      <label onClick={() => { window.open(youtubeChannel, "_blank") }}>{artistName}</label>
+      <button className="btn-primary" type="button" autofocus>Favorite</button>
+      </div>
+      <div className="tile-body-container">
+        <ul className="videos-list">
+          {youtubeVideos.map(({ videoTitle, videoId }) => {
+            return (
+              <li key={uuidv4()} onClick={() => { handleVideoSelect({ videoTitle, videoId }) }} className="video-title">
+                {videoTitle}
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </div>
   )
 }
