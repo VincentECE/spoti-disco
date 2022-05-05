@@ -5,14 +5,19 @@ import ArtistTile from './ArtistTile.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
 
 function FavoriteArtists() {
-  let [artistsAndYouTube, setArtistsAndYouTube] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [artistsAndYouTube, setArtistsAndYouTube] = useState([]);
   const [currentVideoInfo, setCurrentVideoInfo] = useState({ videoTitle: 'Yellow Claw presents The OG Trap Set Part 1', videoId: '_Aw0aSzJAcg' });
 
   useEffect(() => {
-    getFavoriteArtists()
-    .then(({ data }) => {
-      setArtistsAndYouTube(data);
-    })
+    if (!isLoaded) {
+      getFavoriteArtists()
+        .then(({ data }) => {
+          setArtistsAndYouTube(data);
+        })
+      setIsLoaded(true);
+    }
+
   })
 
   return (
