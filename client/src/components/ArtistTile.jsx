@@ -13,7 +13,7 @@ const ArtistTile = ({ artist, handleVideoSelect }) => {
     <div className="tile-container tile-container-spacing">
       <div className="tile-header-container">
       <label className="artist-name" onClick={() => { window.open(youtubeChannel, "_blank") }}>{artistName}</label>
-      <button onClick={()=>{saveFavoriteArtist(artist)}}className="btn-primary" type="button" autoFocus>Favorite</button>
+      <button onClick={()=>{saveFavoriteArtist(artist)}}className="btn-primary" type="button">Favorite</button>
       </div>
       <div className="tile-body-container">
         <ul className="videos-list">
