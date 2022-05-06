@@ -1,8 +1,8 @@
 const { Users } = require('../models');
 
-async function addArtist(artistInfo, session_id, res) {
+function addArtist(artistInfo, session_id, res) {
 
-  const filter = {session_id: session_id };
+  const filter = {session_id: session_id};
   const update = {$push: {favoriteArtists: artistInfo}};
   const options = {upsert: true};
 

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import VideoPlayer from './components/VideoPlayer.jsx';
-import { getEvents } from '../apiMaster.js';
-import EventsList from './components/EventsList.jsx';
 import { BrowserRouter as Router, Switch, Route, Link, Routes } from "react-router-dom";
+import VideoPlayer from './components/VideoPlayer.jsx';
+import EventsList from './components/EventsList.jsx';
 import FavoriteArtists from './components/FavoriteArtists.jsx';
 import Navbar from './components/Navbar.jsx';
+import Home from './components/Home.jsx';
+import { getEvents } from '../apiMaster.js';
 const container = document.getElementById('app');
 const root = createRoot(container);
 
