@@ -2,13 +2,17 @@ import React from 'react';
 import VideosList from './VideosList.jsx';
 import { v4 as uuidv4 } from 'uuid';
 import { saveFavoriteArtist } from '../../apiMaster.js';
+import useStore from '../store.js';
 
-const ArtistTile = ({ artist, handleVideoSelect }) => {
+const ArtistTile = ({ artist }) => {
   const {
     artistName,
     youtubeVideos,
     youtubeChannel,
   } = artist;
+
+  const setCurrentVideoInfo = useStore((state) => state.setCurrentVideoInfo);
+
   return (
     <div className="tile-container tile-container-spacing">
       <div className="tile-header-container">
@@ -19,7 +23,7 @@ const ArtistTile = ({ artist, handleVideoSelect }) => {
         <ul className="videos-list">
           {youtubeVideos.map(({ videoTitle, videoId }) => {
             return (
-              <li key={uuidv4()} onClick={() => { handleVideoSelect({ videoTitle, videoId }) }} className="video-title">
+              <li key={uuidv4()} onClick={() => { setCurrentVideoInfo({ videoTitle, videoId }) }} className="video-title">
                 {videoTitle}
               </li>
             )

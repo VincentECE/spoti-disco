@@ -12,12 +12,10 @@ const container = document.getElementById('app');
 const root = createRoot(container);
 
 function App() {
-  const [currentVideoInfo, setCurrentVideoInfo] = useState({ videoTitle: 'Yellow Claw presents The OG Trap Set Part 1', videoId: '_Aw0aSzJAcg' });
   const [eventsCollection, setEventsCollection] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-
-  const currentVideo = useStore(state => state.currentVideoInfo);
-  const setVideoInfo = useStore((state) => state.currentVideoInfo);
+  const currentVideoInfo = useStore(state => state.currentVideoInfo);
+  const setCurrentVideoInfo = useStore((state) => state.currentVideoInfo);
 
 
 

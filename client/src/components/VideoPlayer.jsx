@@ -1,8 +1,9 @@
 import React from 'react';
+import useStore from '../store.js';
 
 var VideoPlayer = ({ currentVideoInfo }) => {
 
-  const { videoTitle, videoId } = currentVideoInfo;
+  const { videoTitle, videoId } = useStore(state => state.currentVideoInfo);
 
   return (
     <div className="video-player-container">

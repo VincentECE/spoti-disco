@@ -1,8 +1,11 @@
 import React from 'react';
 import ArtistTile from './ArtistTile.jsx';
 import { v4 as uuidv4 } from 'uuid';
+import useStore from '../store.js';
 
 const EventTile = ({ event, handleVideoSelect }) => {
+
+  const setCurrentVideoInfo = useStore((state) => state.currentVideoInfo);
 
   const {
     images,
@@ -21,7 +24,7 @@ const EventTile = ({ event, handleVideoSelect }) => {
       <p className="event-date">{`Event Date: ${startDate}`}</p>
       <div className="artists">
         {event.artistsAndYouTube.map((artist) => {
-          return <ArtistTile key={uuidv4()} artist={artist} handleVideoSelect={handleVideoSelect}/>
+          return <ArtistTile key={uuidv4()} artist={artist}/>
         })}
       </div>
     </div>
