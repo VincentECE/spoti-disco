@@ -3,7 +3,6 @@ import ArtistTile from './ArtistTile.jsx';
 import { v4 as uuidv4 } from 'uuid';
 
 const EventTile = ({ event, handleVideoSelect }) => {
-  console.log(event)
 
   const {
     images,

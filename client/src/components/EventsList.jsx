@@ -4,8 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 const EventsList = ({ eventsCollection, handleVideoSelect }) => {
 
-  console.log(eventsCollection);
-
   return(
     <div className="events-list">
       {eventsCollection.map((event) => {

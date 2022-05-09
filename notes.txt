@@ -14,3 +14,5 @@ id: KZazBEonSMnZfZ7vA1E
 //working link to search in texas
 https://app.ticketmaster.com/discovery/v2/events?apikey=eyKzsAIxTpp4FCwrBJdOsoz0yWrvl35V&locale=*&city=Austin&genreId=KnvZfZ7vAvF
 
+//working URL for searching in Austin with marketId and genreId
+https://app.ticketmaster.com/discovery/v2/events?apikey=eyKzsAIxTpp4FCwrBJdOsoz0yWrvl35V&locale=*&marketId=40&genreId=KnvZfZ7vAvF
