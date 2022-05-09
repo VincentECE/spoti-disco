@@ -18,10 +18,9 @@ function App() {
   const setCurrentVideoInfo = useStore((state) => state.currentVideoInfo);
 
 
-
   function handleCity(e) {
 
-      // console.log('THIS IS e: ', e.value)
+      console.log('THIS IS e: ', e)
     getEvents('08401')
       .then(({ data }) => {
         setEventsCollection(data);
@@ -52,7 +51,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route exact path="/" element={
-              <Home handleCity={handleCity} currentVideoInfo={currentVideoInfo}
+              <Home handleCity={handleCity}
               eventsCollection={eventsCollection} setCurrentVideoInfo={setCurrentVideoInfo}/>
             } />
             <Route exact path="favoriteArtists" element={
@@ -66,10 +65,3 @@ function App() {
 }
 
 root.render(<App />);
-
-/*
-useState
-useEffect
-
-
-*/
