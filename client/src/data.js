@@ -1,4 +1,6 @@
 
+//this object is used in the Home component. It's the data in the mantine dropdown
+
 const markets = [{
   "label": "Birmingham & More",
   "value": 1

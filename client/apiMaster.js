@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const url = 'http://localhost:1128/';
 
-export function getEvents(zipCode) {
+export function getEvents(marketId) {
   const data = {
-    zipCode: zipCode,
+    marketId: marketId,
   };
 
   return axios({

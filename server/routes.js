@@ -3,9 +3,9 @@ const { getEvents } = require('./apiRelay');
 const { addArtist, getFavoriteArtists } = require('../controllers');
 
 router.post('/events', (req, res) => {
-  const zipCode = req.body.zipCode;
+  const marketId = req.body.marketId;
   console.log('inside/events')
-  getEvents(zipCode, res);
+  getEvents(marketId, res);
 });
 
 router.post('/addArtist', (req, res) => {

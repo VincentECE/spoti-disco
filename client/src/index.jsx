@@ -18,10 +18,10 @@ function App() {
   const setCurrentVideoInfo = useStore((state) => state.currentVideoInfo);
 
 
-  function handleCity(e) {
+  function handleCity(marketId) {
 
-      console.log('THIS IS e: ', e)
-    getEvents('08401')
+      console.log('THIS IS marketId: ', marketId)
+    getEvents(marketId)
       .then(({ data }) => {
         setEventsCollection(data);
       })
@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     if (!isLoaded) {
-      getEvents('08401')
+      getEvents(40)
         .then(({ data }) => {
           setEventsCollection(data);
           // console.log(data);
