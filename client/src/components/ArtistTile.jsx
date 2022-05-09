@@ -1,5 +1,4 @@
 import React from 'react';
-import VideosList from './VideosList.jsx';
 import { v4 as uuidv4 } from 'uuid';
 import { saveFavoriteArtist } from '../../apiMaster.js';
 import useStore from '../store.js';
