@@ -2,8 +2,9 @@ import React, { Component, useState } from 'react';
 import VideoPlayer from './VideoPlayer.jsx';
 import EventsList from './EventsList.jsx';
 import Select from 'react-select';
+import useStore from '../store.js';
 
-const Home = ({ handleCity, currentVideoInfo, eventsCollection, setCurrentVideoInfo }) => {
+const Home = ({ handleCity, currentVideoInfo, eventsCollection }) => {
 
   const options = [
     { value: 'chocolate', label: 'Chocolate' },
@@ -16,6 +17,8 @@ const Home = ({ handleCity, currentVideoInfo, eventsCollection, setCurrentVideoI
       color: 'black'
     })
   };
+
+  const setCurrentVideoInfo = useStore((state) => state.currentVideoInfo);
 
   const [selectedOption, setSelectedOption] = useState(null)
 
@@ -31,11 +34,11 @@ const Home = ({ handleCity, currentVideoInfo, eventsCollection, setCurrentVideoI
               }} options={options} />
           </form>
         </div>
-        <VideoPlayer currentVideoInfo={currentVideoInfo} />
+        <VideoPlayer/>
       </section>
       <section>
         <div className="events-container">
-          <EventsList eventsCollection={eventsCollection} handleVideoSelect={setCurrentVideoInfo} />
+          <EventsList eventsCollection={eventsCollection}/>
         </div>
       </section>
     </div>
