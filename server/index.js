@@ -18,3 +18,9 @@ app.use('/', router); // this sends stuff to the router
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
+
+// app.listen(port, '192.168.86.80', (err) => {
+//   console.log('jawn:', err)
+// } ,function() {
+//   console.log(`listening on port ${port}`);
+// });
