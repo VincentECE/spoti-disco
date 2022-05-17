@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { TICKET_MASTER_KEY } = require('../config');
 const { makeEventsArray } = require('./pipeline');
-const ticketMasterUrl = 'https://app.ticketmaster.com/discovery/v2/events?';
+const ticketMasterUrl =  'https://app.ticketmaster.com/discovery/v2/events?apikey=eyKzsAIxTpp4FCwrBJdOsoz0yWrvl35V&locale=*&';
 
 
 //this funciton will break down the data a bunch to send only what's needed in the front end
@@ -9,12 +9,14 @@ const ticketMasterUrl = 'https://app.ticketmaster.com/discovery/v2/events?';
 //this needs to get youtube link, and return multiple videos to the front
 // by takign the link and then sending it to the API to return videso
 
-const getEvents = function (zipCode, res) {
-  const ticketMasterQuery = '&locale=*&city=Austin&genreId=KnvZfZ7vAvF';
+const getEvents = function (marketId, res) {
+  const ticketMasterQuery = `marketId=${marketId}&genreId=KnvZfZ7vAvF`;
+
+  console.log('MarketID', marketId);
 
   axios({
     method: 'get',
-    url: ''.concat(ticketMasterUrl,TICKET_MASTER_KEY,ticketMasterQuery),
+    url: ''.concat(ticketMasterUrl,ticketMasterQuery),
     responseType: 'JSON',
   })
   .then(({ data }) => {
