@@ -19,10 +19,9 @@ function App() {
 
 
   function handleCity(marketId) {
-
-      console.log('THIS IS marketId: ', marketId)
     getEvents(marketId)
       .then(({ data }) => {
+        console.log('DATA', data);
         setEventsCollection(data);
       })
       .catch((err) => {

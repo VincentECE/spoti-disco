@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan'); // logger
-const sessionHandler = require('../middleware/session-handler');
+const sessionHandler = require('./middleware/session-handler');
 const rateLimit = require('express-rate-limit');
-require('../db');
+require('./db');
 
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());

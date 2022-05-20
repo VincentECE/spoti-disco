@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { YOUTUBE_KEY } = require('../config');
+const { YOUTUBE_KEY } = require('../../config');
 const youtubeUrl = 'https://youtube.googleapis.com/youtube/v3/';
 
 //channelsList
