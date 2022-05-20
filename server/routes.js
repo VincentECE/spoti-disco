@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const { getEvents } = require('./apiRelay');
-const { addArtist, getFavoriteArtists } = require('../controllers');
+const {buildEventsData, addArtist, getFavoriteArtists } = require('./controllers');
 
 router.post('/events', (req, res) => {
   const marketId = req.body.marketId;
   console.log('inside/events')
-  getEvents(marketId, res);
+  buildEventsData(marketId, res);
 });
 
 router.post('/addArtist', (req, res) => {
@@ -14,7 +13,6 @@ router.post('/addArtist', (req, res) => {
   const session_id = req.session_id;
 
   addArtist(artistInfo, session_id, res);
-
 });
 
 router.get('/getFavoriteArtists', (req, res) => {
