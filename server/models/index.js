@@ -1,5 +1,6 @@
 const Users = require('./Users');
 const { getEvents } = require('./ticketMasterAPI');
+const { redisClient } = require('./cache');
 const {
   getChannelId,
   getPlaylist,
@@ -12,4 +13,5 @@ module.exports = {
   getChannelId,
   getPlaylist,
   getPlaylistVideos,
+  redisClient,
 }

@@ -9,9 +9,8 @@ export function getEvents(marketId) {
   };
 
   return axios({
-    method: 'post',
-    url: url+'events',
-    data: data,
+    method: 'get',
+    url: `${url}events?marketId=${marketId}`,
   })
 }
 
