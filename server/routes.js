@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const {buildEventsData, addArtist, getFavoriteArtists } = require('./controllers');
+const { cache } = require('./middleware/cache-handler');
 
-router.post('/events', (req, res) => {
-  const marketId = req.body.marketId;
-  console.log('inside/events')
+router.get('/events', cache, (req, res) => {
+  const marketId = req.query?.marketId;
+  console.log('the marketID is', marketId)
   buildEventsData(marketId, res);
 });
 

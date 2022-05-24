@@ -22,8 +22,8 @@ async function buildEventsData(marketId, res) {
       let eventsData = await new Promise((resolve, reject) => {
         addVideosToEvents(filteredEvents, resolve);
       });
-      redisClient.setex(marketId, 10000, eventsData);
       res.send(eventsData);
+      redisClient.set(marketId, JSON.stringify(eventsData));
     } else {
       res.status(404).send('No events found!');
     }
