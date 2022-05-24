@@ -1,4 +1,4 @@
-const { getEvents } = require("../models");
+const { getEvents, redisClient } = require("../models");
 const { selectEventsData } = require("../selectors");
 const { addVideosToEvents } = require("./addVideosToEvents");
 
@@ -22,7 +22,7 @@ async function buildEventsData(marketId, res) {
       let eventsData = await new Promise((resolve, reject) => {
         addVideosToEvents(filteredEvents, resolve);
       });
-
+      redisClient.setex(marketId, 10000, eventsData);
       res.send(eventsData);
     } else {
       res.status(404).send('No events found!');

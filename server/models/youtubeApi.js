@@ -1,5 +1,4 @@
 const axios = require('axios');
-const { YOUTUBE_KEY } = require('../../config');
 const youtubeUrl = 'https://youtube.googleapis.com/youtube/v3/';
 
 //channelsList
@@ -11,7 +10,7 @@ const getChannelId = function (userName) {
 
   return axios({
     method: 'get',
-    url: ''.concat(youtubeUrl, route, query, YOUTUBE_KEY),
+    url: ''.concat(youtubeUrl, route, query, process.env.YOUTUBE_KEY),
     responseType: 'JSON',
   })
 }
@@ -25,7 +24,7 @@ const getPlaylist = function (channelId) {
 
   return axios({
     method: 'get',
-    url: ''.concat(youtubeUrl, route, query, YOUTUBE_KEY),
+    url: ''.concat(youtubeUrl, route, query, process.env.YOUTUBE_KEY),
     responseType: 'JSON',
   })
 }
@@ -40,7 +39,7 @@ const getPlaylistVideos = function (playlistId) {
 
   return axios({
     method: 'get',
-    url: ''.concat(youtubeUrl, route, query, YOUTUBE_KEY),
+    url: ''.concat(youtubeUrl, route, query, process.env.YOUTUBE_KEY),
     responseType: 'JSON',
   })
 }
