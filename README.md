@@ -24,3 +24,9 @@ Links to the TicketMaster purchase page are provided for all events. Additionall
 ### Links and Buttons
 ![Screen Shot 2022-06-06 at 8 37 42 PM](https://user-images.githubusercontent.com/89487780/172277158-0ad5cb06-7647-47ce-a74d-f9545d09e58e.png)
 
+# Installation
+1. Clone or Fork Repo
+2. install dependencies (npm i)
+3. Add .env file for two keys, 'TICKET_MASTER_KEY= YOUR KEY' and 'YOUTUBE_KEY= YOURKEY'
+4. run webpack in development mode (client side) with 'npm run react-dev'
+5. start server for development with 'npm run server-dev'
