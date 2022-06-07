@@ -24,6 +24,30 @@ Links to the TicketMaster purchase page are provided for all events. Additionall
 ### Links and Buttons
 ![Screen Shot 2022-06-06 at 8 37 42 PM](https://user-images.githubusercontent.com/89487780/172277158-0ad5cb06-7647-47ce-a74d-f9545d09e58e.png)
 
+# Dependencies
+- mantine/core
+- axios
+- body-parser
+- dotenv
+- express
+- express-rate-limit
+- mongodb
+- mongoose
+- morgan
+- react
+- react-dom
+- react-router-dom
+- redis
+- uuid
+- zustand
+
+# Dev Dependencies
+- @babel/core
+- @babel/preset-env
+- @babel-loader
+- webpack
+- webpack-cli
+
 # Installation
 1. Clone or Fork Repo
 2. install dependencies (npm i)
