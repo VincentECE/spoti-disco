@@ -50,7 +50,7 @@ Links to the TicketMaster purchase page are provided for all events. Additionall
 
 # Installation
 1. Clone or Fork Repo
-2. install dependencies (npm i)
+2. install dependencies with 'npm i'
 3. Add .env file for two keys, 'TICKET_MASTER_KEY= YOUR KEY' and 'YOUTUBE_KEY= YOURKEY'
 4. run webpack in development mode (client side) with 'npm run react-dev'
 5. start server for development with 'npm run server-dev'
