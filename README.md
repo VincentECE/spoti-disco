@@ -9,4 +9,14 @@ Spoti-Disco is a site for EDM music enthusiasts to quickly see what events are c
 No, Spoti-Disco will store all the saved artists and link them to a session ID. This means that all the user needs to do is return to the site using the same browser (assuming that cookies aren't being deleted and it's not a private browser).
 
 ## How do users purchase tickets to the event?
-Links to the TicketMaster purchase page are provided for all events. Additionally, links to all artists' YouTube channel are provided for users to see more.
+Links to the TicketMaster purchase page are provided for all events. Additionally, links to all artists' YouTube channel are provided to make it easy to check out more music.
+
+# Page Overview
+
+## Homepage
+![Screen Shot 2022-06-06 at 7 49 51 PM](https://user-images.githubusercontent.com/89487780/172272718-a9062bea-dbc5-408e-8200-bc00915a363e.png)
+
+## Favorite Artists page
+![Screen Shot 2022-06-06 at 7 53 46 PM](https://user-images.githubusercontent.com/89487780/172273082-54c27087-e257-42d8-bc86-7cce9d654dcd.png)
+
+# Features
