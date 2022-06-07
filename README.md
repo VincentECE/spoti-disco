@@ -16,18 +16,11 @@ Links to the TicketMaster purchase page are provided for all events. Additionall
 ### Homepage
 ![Screen Shot 2022-06-06 at 7 49 51 PM](https://user-images.githubusercontent.com/89487780/172272718-a9062bea-dbc5-408e-8200-bc00915a363e.png)
 
-### Favorite Artists page
-![Screen Shot 2022-06-06 at 7 53 46 PM](https://user-images.githubusercontent.com/89487780/172273082-54c27087-e257-42d8-bc86-7cce9d654dcd.png)
-
 # Features
 
 ### Autocomplete Dropdown Menu
 ![Screen Shot 2022-06-06 at 8 06 13 PM](https://user-images.githubusercontent.com/89487780/172274222-dd50971d-6064-483b-bf55-3cf632d726d6.png)
 
-### Video Player
-![Screen Shot 2022-06-06 at 8 07 44 PM](https://user-images.githubusercontent.com/89487780/172274310-2bc504b7-091b-4ffd-8ab8-45327cc41a51.png)
-
-### Events and Music Select
-![Screen Shot 2022-06-06 at 8 18 33 PM](https://user-images.githubusercontent.com/89487780/172275359-a7e6f262-acf6-4bdb-8571-3325077f5698.png)
-
+### Links and Buttons
+![Screen Shot 2022-06-06 at 8 37 42 PM](https://user-images.githubusercontent.com/89487780/172277158-0ad5cb06-7647-47ce-a74d-f9545d09e58e.png)
 
